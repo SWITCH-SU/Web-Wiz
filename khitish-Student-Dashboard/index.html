@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <h2>ZENGO Course</h2>
+      <ul>
+        <li><button class="btn">Overview</button></li>
+        <li><button class="btn">Courses</button></li>
+        <li><button class="btn">information</button></li>
+        <li><button class="btn">Messages</button></li>
+        <li><button class="btn">Settings</button></li>
+      </ul>
+    </div>
+
+    <div class="main">
+      <div class="header">
+        <h1>Hi,Khitish</h1>
+        <br>
+        <div class="pic"><img  height="70" src="https://img.freepik.com/premium-vector/boy-student-graduate-cap-icon-sign-logo-color-isolated-image-circle-isolated-vector-illustration_619989-1110.jpg" alt="profile pic">
+        </div>
+        <h1 class="header">Welcome To Your Dashboard</h1>
+        <div class="btn" type="search" aria-placeholder="search Here"></div>
+      </div>
+
+      <div class="section"> 
+  <div class="running-course">
+          <h2>Here is the Running Course that you want...</h2>
+          <br>
+        </div>
+        <div class="activity">
+          <h3 text-align="center" class="btn"> Here is your Activity</h3>
+          <img src="https://sketchelements.com/wp-content/uploads/2019/11/activity-dashboard-sample.jpg" alt="activity img">
+        </div>
+      </div>
+
+      <div>
+      <h3>Mentors</h3>
+      <div class="section">
+        <div class="mentor">
+          <h4>Ankit sharma</h4>
+        </div>
+        </div>
+        <h3>Courses</h3>
+        <div class="section">
+        <div class="course">
+          <h4>Creating Beautiful Landing Page</h4>
+          <p>Beginner Level</p>
+        </div>
+        <div class="course">
+          <h4>Animation is Key to Design</h4>
+          <p>Master Level</p>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <div class="rightbar">
+      <div class="calendar">
+        <img height="150 px" src="https://media.istockphoto.com/id/1434746356/vector/small-calendar-line-icons-editable-stroke.jpg?s=612x612&w=0&k=20&c=_mqQwiJEBl1hQLniDemKACjyBptnR74P3xsRxRyagyw=" alt="calender">
+      </div>
+      <div class="today-class">
+        <h2>Today</h2>
+        <h2>How to Implement Usability Testing</h2>
+        <br>
+        <ul>
+          <button class="btn">Intro  10:00</button>          
+          <br>
+         <button class="btn">What is UX 10:00</button>
+          <br>
+          <button class="btn">Testing 30:00</button>
+          <br>
+          <button class="btn">Usability Test 30:00</button>
+          <br>
+          <button class="btn">Implementation</button>
+          <br>
+        </ul>
+      </div>
+    </div>
+</div>
+<div class="habit-tracker">
+  <h2>Habit Tracker</h2>
+  <ul id="habits-list">
+      <li class="habit-item">
+          <span><h3>Read for 30 minutes</h3></span>
+          <div class="habit-days">
+              <input type="checkbox" id="read-sun">
+              <label for="read-sun">Sun</label>
+              <input type="checkbox" id="read-mon">
+              <label for="read-mon">Mon</label>
+              <input type="checkbox" id="read-tue">
+              <label for="read-tue">Tue</label>
+              <input type="checkbox" id="read-wed">
+              <label for="read-wed">Wed</label>
+              <input type="checkbox" id="read-thu">
+              <label for="read-thu">Thu</label>
+              <input type="checkbox" id="read-fri">
+              <label for="read-fri">Fri</label>
+              <input type="checkbox" id="read-sat">
+              <label for="read-sat">Sat</label>
+          </div>
+      </li>
+      <li class="habit-item">
+          <span><h3>Exercise</h3></span>
+          <div class="habit-days">
+              <input type="checkbox" id="exercise-sun">
+              <label for="exercise-sun">Sun</label>
+              <input type="checkbox" id="exercise-mon">
+              <label for="exercise-mon">Mon</label>
+              <input type="checkbox" id="exercise-tue">
+              <label for="exercise-tue">Tue</label>
+              <input type="checkbox" id="exercise-wed">
+              <label for="exercise-wed">Wed</label>
+              <input type="checkbox" id="exercise-thu">
+              <label for="exercise-thu">Thu</label>
+              <input type="checkbox" id="exercise-fri">
+              <label for="exercise-fri">Fri</label>
+              <input type="checkbox" id="exercise-sat">
+              <label for="exercise-sat">Sat</label>
+          </div>
+      </li>
+      </ul>
+  <button onclick="addHabit()">Add New Habit</button>
+</div>
+<div class="mood-tracker">
+  <h2>Mood Tracker</h2>
+  <div id="mood-selection">
+      <button onclick="recordMood('😊')">😊</button>
+      <button onclick="recordMood('😐')">😐</button>
+      <button onclick="recordMood('🙁')">🙁</button>
+      <button onclick="recordMood('😭')">😭</button>
+      <button onclick="recordMood('🤩')">🤩</button>
+      </div>
+  <h3>Mood History</h3>
+  <div id="mood-history">
+      </div>
+</div>
+<div >
+  <button class="planner-view.hidden "onclick="showDailyView()">Daily</button>
+  <button class="planner-view.hidden "onclick="showWeeklyView()">Weekly</button>
+  <button class="planner-view.hidden "onclick="showMonthlyView()">Monthly</button>
+  <div id="daily-view" class="planner-view">
+    <h3>Daily Planner</h3>
+    <p>Content for the daily view will go here.</p>
+  </div>
+  <div id="weekly-view" class="planner-view hidden">
+    <h3>Weekly Planner</h3>
+    <p>Content for the weekly view will go here.</p>
+  </div>
+  <div id="monthly-view" class="planner-view hidden">
+    <h3>Monthly Planner</h3>
+    <p>Content for the monthly view will go here.</p>
+  </div>
+</div>
+<br>
+  <div class="break-display">
+      <h3>Break Time</h3>
+      <div class="timer-display">
+          <span id="break-minutes">05</span>:<span id="break-seconds">00</span>
+      </div>
+  </div>
+</div>   
+<div class="focus-timer">
+  <h2>Focus Timer</h2>
+  <div class="timer-display">
+      <span id="minutes">25</span>:<span id="seconds">00</span>
+  </div>
+  <div class="timer-controls">
+      <button id="start-btn">Start</button>
+      <button id="pause-btn" disabled>Pause</button>
+      <button id="reset-btn">Reset</button>
+  </div>
+  <div class="break-display">
+      <h3>Break Time</h3>
+      <div class="timer-display">
+          <span id="break-minutes">05</span>:<span id="break-seconds">00</span>
+      </div>
+  </div>
+</div>
+  <script src="script.js"></script>
+</body>
+</html>

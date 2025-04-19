@@ -1,0 +1,37 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #343a40; /* Spotify green */
+  padding: 10px 20px;
+  color: white;
+  width: 100vw;
+}
+
+.navbar-logo img {
+  height: 40px;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+
+}
+
+.navbar-links  h5{
+  font-family: "Raleway", sans-serif;
+  color:#adb5bd;
+  font-size: 2rem;
+}
+.navbar-links li {
+  display: inline;
+}
+
+
+.navbar-search input {
+  padding: 5px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+}

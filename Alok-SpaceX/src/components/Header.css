@@ -1,0 +1,210 @@
+
+.app-header {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: rgba(10, 15, 26, 0.8); 
+    backdrop-filter: blur(5px); 
+    border-bottom: 1px solid rgba(100, 150, 255, 0.2);
+    z-index: 1000;
+    box-sizing: border-box;
+  }
+  
+  .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #e0e0e0;
+    letter-spacing: 1px;
+  }
+  
+  .main-nav a {
+    color: #c0c0c0;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .main-nav a:hover {
+    color: #ffffff;
+  }
+  
+  .main-nav a.nav-cta {
+    background-color: rgba(127, 219, 255, 0.8);
+    color: #0a0f1a;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .main-nav a.nav-cta:hover {
+    background-color: #a1e9ff;
+    color: #0a0f1a;
+    transform: scale(1.05);
+  }
+  
+
+@media (max-width: 768px) {
+  .app-header {
+    
+    flex-direction: column;
+    padding: 15px 20px; 
+    
+    align-items: center;
+  }
+
+  .logo {
+    margin-bottom: 10px; 
+  }
+
+  .main-nav {
+    
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 10px 15px; 
+    margin-top: 0; 
+  }
+
+  .main-nav a {
+    margin-left: 0; 
+    font-size: 0.9rem;
+  }
+
+  
+  .main-nav a.nav-cta {
+    padding: 8px 12px;
+  }
+
+  
+  .main-nav a[href^="#"] {
+      display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.5rem;
+  }
+  .main-nav {
+    gap: 8px 10px;
+  }
+  .main-nav a {
+    font-size: 0.85rem;
+  }
+}
+
+
+/* src/components/Header.css */
+.app-header {
+  position: fixed; /* Keep header fixed at the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: rgba(10, 15, 26, 0.8); /* Semi-transparent background */
+  backdrop-filter: blur(5px); /* Frosted glass effect */
+  border-bottom: 1px solid rgba(100, 150, 255, 0.2);
+  z-index: 1000; /* Ensure header is above other content */
+  box-sizing: border-box;
+}
+
+.logo {
+  /* Use Orbitron for the logo to match component titles */
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.8rem;
+  font-weight: bold; /* Orbitron might need bold */
+  color: #e0e0e0;
+  letter-spacing: 1px;
+  text-decoration: none; /* Remove underline if it's a Link */
+}
+
+.main-nav a {
+  /* Use Roboto for standard nav links */
+  font-family: 'Roboto', sans-serif;
+  color: #c0c0c0;
+  text-decoration: none;
+  margin-left: 25px;
+  font-size: 1rem;
+  font-weight: 400; /* Regular weight for Roboto */
+  transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+  color: #ffffff;
+}
+
+/* Style the CTA link - can keep Roboto or use Orbitron */
+.main-nav a.nav-cta {
+  font-family: 'Roboto', sans-serif; /* Or 'Orbitron' */
+  background-color: rgba(127, 219, 255, 0.8);
+  color: #0a0f1a;
+  padding: 8px 15px;
+  border-radius: 4px;
+  font-weight: bold; /* Make CTA stand out */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  /* Reset margin if needed */
+  /* margin-left: 25px; */
+}
+
+.main-nav a.nav-cta:hover {
+  background-color: #a1e9ff;
+  color: #0a0f1a;
+  transform: scale(1.05);
+}
+
+/* --- Responsive adjustments --- */
+@media (max-width: 768px) {
+  .app-header {
+    flex-direction: column;
+    padding: 15px 20px;
+    align-items: center;
+  }
+
+  .logo {
+    margin-bottom: 10px;
+  }
+
+  .main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 15px;
+    margin-top: 0;
+  }
+
+  .main-nav a {
+    margin-left: 0;
+    font-size: 0.9rem;
+  }
+
+  .main-nav a.nav-cta {
+    padding: 8px 12px;
+  }
+
+  /* Hide the hash links on mobile */
+  .main-nav a[href^="#"] {
+      display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.5rem;
+  }
+  .main-nav {
+    gap: 8px 10px;
+  }
+  .main-nav a {
+    font-size: 0.85rem;
+  }
+}

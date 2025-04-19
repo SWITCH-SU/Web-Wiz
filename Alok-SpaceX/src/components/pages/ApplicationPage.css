@@ -1,0 +1,190 @@
+
+.application-page-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #0a0f1a;
+    color: #e0e0e0;
+    overflow-y: auto; 
+  }
+  
+  .application-content {
+    flex-grow: 1;
+    padding: 100px 40px 40px; 
+    max-width: 800px; 
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .application-content h1 {
+    font-family: 'Orbitron', sans-serif;
+    color: #7fdbff;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.2rem;
+    font-weight: 600;
+  }
+  
+  .application-form {
+    background-color: rgba(15, 22, 38, 0.7); 
+    padding: 30px 40px;
+    border-radius: 8px;
+    border: 1px solid rgba(100, 150, 255, 0.2);
+  }
+  
+  .form-group {
+    margin-bottom: 25px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #c0dfff;
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+  
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group input[type="tel"],
+  .form-group textarea,
+  .form-group input[type="file"] {
+    width: 100%;
+    padding: 10px 12px;
+    background-color: rgba(10, 15, 26, 0.9); 
+    border: 1px solid rgba(100, 150, 255, 0.3);
+    border-radius: 4px;
+    color: #e0e0e0;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .form-group input[type="file"] {
+    padding: 8px 12px; 
+  }
+  
+  
+  .form-group input[type="file"]::file-selector-button {
+    padding: 8px 15px;
+    margin-right: 10px;
+    background-color: #3a4a6e;
+    border: none;
+    border-radius: 4px;
+    color: #c0dfff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .form-group input[type="file"]::file-selector-button:hover {
+    background-color: #4a5a7e;
+  }
+  
+  
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: #7fdbff;
+    box-shadow: 0 0 8px rgba(127, 219, 255, 0.3);
+  }
+  
+  .form-group textarea {
+    resize: vertical; 
+    min-height: 100px;
+  }
+  
+  .form-group .file-name {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 0.85rem;
+    color: #a0b0c0;
+  }
+  
+  .submit-button {
+    display: block;
+    width: 100%; 
+    padding: 12px 20px;
+    background-color: #7fdbff;
+    color: #0a0f1a;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none; 
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-align: center;
+    margin-top: 10px; 
+  }
+  
+  .submit-button:hover:not(:disabled) {
+    background-color: #a1e9ff;
+    transform: scale(1.02);
+  }
+  
+  .submit-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  .submit-success-message {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: rgba(15, 22, 38, 0.7);
+    border-radius: 8px;
+    border: 1px solid rgba(100, 150, 255, 0.2);
+  }
+  
+  .submit-success-message p {
+    font-size: 1.2rem;
+    color: #a1e9ff;
+    margin-bottom: 25px;
+  }
+  
+  .back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3a4a6e;
+    color: #c0dfff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 0.9rem;
+  }
+  
+  .back-button:hover {
+    background-color: #4a5a7e;
+  }
+  
+  
+  @media (max-width: 768px) {
+    .application-content {
+      padding: 90px 20px 30px;
+    }
+    .application-content h1 {
+      font-size: 1.8rem;
+    }
+    .application-form {
+      padding: 25px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .application-content {
+      padding: 80px 15px 20px;
+    }
+     .application-content h1 {
+      font-size: 1.6rem;
+    }
+    .application-form {
+      padding: 20px 15px;
+    }
+    .submit-button {
+      font-size: 0.9rem;
+      padding: 10px 15px;
+    }
+  }
+  

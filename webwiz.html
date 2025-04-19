@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Divine Pages - Indian Mythology Collection</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Cinzel+Decorative&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: url('https://images.unsplash.com/photo-1588854337119-68168c89fc7d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Playfair Display', serif;
+      color: #f4f1ed;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 2rem;
+      text-align: center;
+      border-bottom: 2px solid #e0c68b;
+    }
+
+    header img {
+      max-width: 200px;
+      margin-bottom: 1rem;
+    }
+
+    header h1 {
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: 3rem;
+      color: #e0c68b;
+      text-shadow: 2px 2px #000;
+      animation: fadeIn 2s ease-in;
+    }
+
+    nav {
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1rem 0;
+    }
+
+    nav a {
+      color: #f4f1ed;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      color: #e0c68b;
+      transform: scale(1.1);
+    }
+
+    nav a::after {
+      content: '';
+      display: block;
+      height: 2px;
+      background: #e0c68b;
+      transition: width 0.3s ease-in-out;
+      width: 0;
+      margin: auto;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .motto {
+      background-color: rgba(0, 0, 0, 0.6);
+      color: #e0c68b;
+      font-size: 1.25rem;
+      text-align: center;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      font-style: italic;
+      border-radius: 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #ffd27f;
+      font-family: 'Cinzel Decorative', cursive;
+      margin-top: 2rem;
+      text-shadow: 1px 1px #000;
+    }
+
+    .collection, .popular-books {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .book {
+      position: relative;
+      background-color: rgba(255, 255, 255, 0.08);
+      border: 2px solid #e0c68b;
+      padding: 1.5rem;
+      border-radius: 15px;
+      transition: transform 0.3s ease, background-color 0.3s;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.7);
+      transform-style: preserve-3d;
+      cursor: pointer;
+    }
+
+    .book:hover {
+      transform: scale(1.05) rotateY(2deg) rotateX(1deg);
+      background-color: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 0 20px #e0c68b, 0 0 10px #ffd27f;
+    }
+
+    .book img {
+      width: 100%;
+      height: 250px;
+      object-fit: contain;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .book h2 {
+      font-family: 'Cinzel Decorative', cursive;
+      color: #ffd27f;
+      margin-bottom: 0.5rem;
+      text-shadow: 1px 1px #000;
+    }
+
+    .book h2:hover {
+      text-shadow: 0 0 8px #ffe080, 0 0 12px #f0c060;
+    }
+
+    .book p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #f2d9a6;
+    }
+
+    .quote-style {
+      font-style: italic;
+      font-size: 1.05rem;
+      margin-top: 0.5rem;
+      color: #ffeec0;
+    }
+
+    .book .buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1rem;
+    }
+
+    .book button {
+      flex: 1;
+      margin: 0 0.25rem;
+      background-color: #e0c68b;
+      border: none;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      color: #000;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: background-color 0.3s, transform 0.s;
+    }
+
+    .book button:hover {
+      background-color: #ffd27f;
+      transform: scale(1.05);
+    }
+
+    footer {
+      background-color: rgba(0, 0, 0, 0.85);
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      border-top: 2px solid #e0c68b;
+      color: #f4f1ed;
+    }
+
+    .social-icons {
+      margin: 1rem 0;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      color: #ffd27f;
+      font-size: 1.5rem;
+      text-decoration: none;
+    }
+
+    .quiz-button {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: #e0c68b;
+      border: none;
+      padding: 1rem;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* NEW FEATURES BELOW */
+
+    .scroll-story {
+      position: relative;
+      background: url('https://images.unsplash.com/photo-1523875194681-bedd468c58bf?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat fixed;
+      color: #fff;
+      padding: 5rem 2rem;
+      text-align: center;
+      font-size: 1.5rem;
+      line-height: 2;
+      font-style: italic;
+      transition: background 1s ease-in-out;
+    }
+
+    .glossary-term {
+      position: relative;
+      cursor: help;
+      border-bottom: 1px dotted #ffd27f;
+    }
+
+    .glossary-term:hover::after {
+      content: attr(data-definition);
+      position: absolute;
+      bottom: 120%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #000;
+      color: #ffd27f;
+      padding: 0.5rem;
+      border-radius: 5px;
+      white-space: nowrap;
+      font-size: 0.9rem;
+      z-index: 10;
+    }
+
+    .timeline {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 3rem 1rem;
+      color: #f4f1ed;
+    }
+
+    .timeline h2 {
+      text-align: center;
+      font-family: 'Cinzel Decorative', cursive;
+      color: #ffd27f;
+      margin-bottom: 2rem;
+    }
+
+    .timeline-event {
+      margin-bottom: 2rem;
+      border-left: 4px solid #e0c68b;
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .timeline-event::before {
+      content: '⏳';
+      position: absolute;
+      left: -1.4rem;
+      top: 0;
+    }
+
+    .timeline-event h3 {
+      margin-bottom: 0.5rem;
+      color: #ffd27f;
+    }
+
+    .timeline-event p {
+      font-size: 1rem;
+      color: #f4f1ed;
+    }
+
+    .book::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      border-top: 40px solid #ffd27f;
+      border-left: 40px solid transparent;
+      z-index: 2;
+      transition: all 0.3s;
+      opacity: 0.8;
+    }
+
+    .book:hover::before {
+      opacity: 1;
+    }
+
+    .book:hover::after {
+      content: attr(data-summary);
+      position: absolute;
+      top: 10%;
+      left: 105%;
+      width: 200px;
+      background: #000;
+      color: #fff;
+      padding: 1rem;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      z-index: 20;
+      box-shadow: 0 0 10px #e0c68b;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="ss.png" alt="SARTHAK">
+    <h1>Divine Pages - Indian Mythology Collection</h1>
+  </header>
+
+  <nav>
+    <a href="#mahabharata">Mahabharata</a>
+    <a href="#ramayana">Sri Valmiki Ramayana</a>
+    <a href="#bhagavadgita">Bhagavad Gita</a>
+    <a href="#upanishads">Upanishads</a>
+    <a href="#puranas">Puranas</a>
+    <a href="#vedas">Vedas</a>
+    <a href="#kalidasa">Kalidasa</a>
+    <a href="#panchtantra">Panchtantra</a>
+    <a href="#geetgovind">Geet Govind</a>
+    <a href="#sandhyaupasana">Sandhya Upasana Paddhati</a>
+    <a href="#quran">Quran</a>
+    <a href="#bible">Bible</a>
+  </nav>
+
+  <div class="motto">
+    <p>"Knowledge is free and available to all, but the right knowledge must be pursued with wisdom."</p>
+  </div>
+
+  <div class="section-title">Most Preferred Books</div>
+  <section class="popular-books">
+    <div class="book" id="bhagavadgita" data-summary="Krishna’s guidance to Arjuna on karma, dharma, and liberation.">
+      <h2>Bhagavad Gita</h2>
+      <img src="mahabharat.png" alt="Bhagavad Gita">
+      <p>Author: Vyasa</p>
+      <p>Spiritual discourse between Arjuna and Krishna on the battlefield, discussing life, duty, and the path to enlightenment.</p>
+      <div class="quote-style">"Dharma is never destroyed; it protects those who protect it."</div>
+      <div class="buttons">
+        <button>Read</button>
+        <button>Buy</button>
+      </div>
+    </div>
+
+    <div class="book" id="ramayana" data-summary="Rama’s journey of virtue, exile, and rescue of Sita from Ravana.">
+      <h2>Sri Valmiki Ramayana</h2>
+      <img src="sri ramayana.png" alt="Sri Valmiki Ramayana">
+      <p>Author: Rishi Valmiki</p>
+      <p>The epic tale of Lord Rama's journey, battles, and devotion, portraying the ideals of dharma and righteousness.</p>
+      <div class="quote-style">"Victory follows those who walk the path of truth and honor."</div>
+      <div class="buttons">
+        <button>Read</button>
+        <button>Buy</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-title">Famous Books Collection</div>
+  <section class="collection">
+    <div class="book" id="geetgovind" data-summary="Poetic expression of the divine love of Radha and Krishna.">
+      <h2>Geet Govind</h2>
+      <img src="geet govinda.png" alt="Geet Govind">
+      <p>Author: Jayadeva</p>
+      <p>A 12th-century Sanskrit poem describing the divine love of Radha and Krishna in lyrical verse and music.</p>
+      <div class="quote-style">Softly flows the Yamuna, under moonlight where Radha and Krishna meet...</div>
+      <div class="buttons">
+        <button>Read</button>
+        <button>Buy</button>
+      </div>
+    </div>
+
+    <div class="book" id="sandhyaupasana" data-summary="Ritual meditations performed at dawn, noon, and dusk.">
+      <h2>Sandhya Upasana Paddhati</h2>
+      <img src="sandhya upasanna.png" alt="Sandhya Upasana">
+      <p>Author: Acharya Kaundinyan</p>
+      <p>A procedural guide for daily Hindu worship rituals and meditative practices conducted at dawn, noon, and dusk.</p>
+      <div class="quote-style">Let us meditate on the sunset, offering prayers with pure intent...</div>
+      <div class="buttons">
+        <button>Read</button>
+        <button>Buy</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="scroll-story">
+    <p>As the <span class="glossary-term" data-definition="The cosmic cycle of duty, righteousness, and truth.">Dharma</span> unfolds, the war of Mahabharata reveals <span class="glossary-term" data-definition="The cosmic cycle of duty, righteousness, and truth.">Reveal</span> the eternal conflict between ego and enlightenment...</p>
+  </section>
+
+
+  <section class="timeline">
+    <h2>Epic Moments Timeline</h2>
+    <div class="timeline-event">
+      <h3>Mahabharata: Dice Game</h3>
+      <p>Yudhishthira loses his kingdom, brothers, and Draupadi in a game of dice.</p>
+    </div>
+    <div class="timeline-event">
+      <h3>Ramayana: Sita’s Abduction</h3>
+      <p>Ravana kidnaps Sita, setting the stage for Rama’s legendary rescue.</p>
+    </div>
+    <div class="timeline-event">
+      <h3>Kurukshetra War Begins</h3>
+      <p>Krishna becomes Arjuna’s charioteer and the Bhagavad Gita is spoken.</p>
+    </div>
+  </section>
+
+  <button class="quiz-button">🧠</button>
+
+  <footer>
+    <div class="section-title">About the Publisher</div>
+    <p>Divine Pages is dedicated to preserving and sharing timeless knowledge from Indian mythology and world religious texts.</p>
+    <p>Contact us: <a href="mailto:divinepages@gmail.com" style="color: #e0c68b;">divinepages@gmail.com</a></p>
+    <div class="social-icons">
+      <a href="#">Instagram</a>
+      <a href="#">Twitter</a>
+      <a href="#">Facebook</a>
+    </div>
+    <p>&copy; 2025 Divine Pages | All Rights Reserved</p>
+  </footer>
+</body>
+</html>

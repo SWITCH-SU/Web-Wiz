@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit&family=Questrial&display=swap');
+@import "tailwindcss";
+
+* {
+    font-family: Outfit;
+    /* font-family: Poppins; */
+}
+
+body {
+    background: #111827;
+    /* Dark gray-900 */
+    /* color: #f3f4f6; Light gray-100 */
+}
+
+/* In your global CSS */
+.timeline-container::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    background: transparent;
+  }
+

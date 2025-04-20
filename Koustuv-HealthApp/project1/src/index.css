@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@layer base {
+  button {
+    @apply border border-green-600 rounded-xl px-5 py-1
+  }
+}

@@ -1,0 +1,81 @@
+.space-medicine-section {
+
+    background-image: 
+    linear-gradient(rgba(10, 15, 26, 0.5), rgba(10, 15, 26, 0.5)), 
+    url('https://user-images.githubusercontent.com/565124/32411599-a5fcba72-c1df-11e7-8730-a570470a4eee.gif'), 
+    url('https://th.bing.com/th/id/OIP.dS5c0D4mJ56fmN-sll9vuQHaEK?w=1920&h=1080&rs=1&pid=ImgDetMain');
+background-size: cover, cover, cover;
+background-position: center center, center center, center center; 
+background-repeat: no-repeat, no-repeat, no-repeat; 
+background-blend-mode: normal, lighten, normal;
+opacity: 0.8;
+filter: hue-rotate(45deg); /* Adjust the hue by 45 degrees */
+
+}
+
+
+.space-medicine-illustration-element {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    width: 35%;
+    max-width: 400px;
+    opacity: 0.6;
+    z-index: 0; 
+    pointer-events: none;
+    animation: floatAnimation 6s ease-in-out infinite;
+}
+
+.mission-content {
+    perspective: 1000px;
+    position: relative;
+    top: -200px; 
+}
+
+.mission-content .flip-card {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.mission-content:hover .flip-card {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+    background-color: #f8f9fa; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flip-card-back p {
+    border: 2px solid transparent;
+    box-shadow: 0 0 15px 5px rgba(0, 255, 255, 0.6); 
+    padding: 10px;
+    border-radius: 5px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.flip-card-back p:hover {
+    box-shadow: 0 0 25px 10px rgba(0, 255, 255, 0.8); 
+}
+
+.mission-cta {
+    margin: 20px; 
+}
+
+@keyframes floatAnimation {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}

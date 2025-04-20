@@ -1,0 +1,126 @@
+
+.app-footer {
+  padding: 30px 50px;
+  background: linear-gradient(to bottom, #0a0f1a, #05080d);
+  color: #a0a0c0; 
+  font-size: 0.9rem;
+  position: relative; 
+  border-top: 1px solid transparent; 
+  overflow: hidden;
+}
+
+
+.app-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px; 
+  background: linear-gradient(90deg, transparent, rgba(127, 219, 255, 0.5), transparent);
+  animation: borderGlowAnimation 5s linear infinite; 
+}
+
+@keyframes borderGlowAnimation {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1200px; 
+  margin: 0 auto;
+  gap: 15px;
+}
+
+.copyright {
+  margin: 0;
+  text-align: left; 
+}
+
+.company-name {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 500;
+  color: #c0c0e0;
+}
+
+.footer-links {
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  text-align: right
+}
+
+.footer-links a {
+  color: #88aaff;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+  padding-bottom: 3px;
+}
+
+
+.footer-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0; 
+  height: 1px;
+  background-color: #7fdbff;
+  transition: width 0.3s ease-out;
+}
+
+.footer-links a:hover {
+  color: #ffffff; 
+}
+
+.footer-links a:hover::after {
+  width: 100%; 
+}
+
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column; 
+    align-items: center;
+    text-align: center; 
+    gap: 20px;
+  }
+
+  .copyright,
+  .footer-links {
+    text-align: center;
+  }
+
+  .app-footer {
+    padding: 25px 20px; 
+  }
+}
+
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center; 
+    text-align: center; 
+    gap: 20px; 
+  }
+
+  .copyright,
+  .footer-links {
+    text-align: center;
+  }
+
+  .app-footer {
+    padding: 25px 20px; 
+  }
+}

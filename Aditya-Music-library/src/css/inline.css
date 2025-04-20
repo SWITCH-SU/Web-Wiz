@@ -1,0 +1,77 @@
+.elem{
+    height: auto;
+}
+
+.movingin {
+  position: absolute;
+    display: flex;
+    white-space: nowrap;
+    overflow-x: hidden;
+   
+    font-size: 20px;
+    font-family: 'Gilroy', sans-serif !important;
+    text-transform: uppercase;
+    gap: 1em;
+    font-weight: 100;
+    animation: movingin 20s linear infinite;
+    animation-delay: 0s;
+    animation-play-state: running;
+    display: inline-block;
+   
+    
+}
+.moving{
+    background-color: #edede9;
+    height: 5vh;
+    width: 100vw;
+    overflow-x: hidden;
+    opacity: 0;
+    position: relative;
+    display: inline-block;
+}
+h2:hover{
+  opacity: 0;
+}
+h2:hover + .moving {
+  transform: scale(3); /* Scale to 200% */
+  transition: transform 0.5s ease-in-out;
+  opacity: 1;
+}
+
+.movingin2 h5{
+    color: black;
+    
+}
+@keyframes 
+movingin {
+  from{
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+h2{
+    text-align: center;
+    transform: translateY(100% );
+    position: relative;
+    z-index:2;
+    font-family: "EB Garamond", serif;
+    font-weight: 100;
+    color:#dee2e6;
+    font-size: 2.0em;
+  
+}
+
+  
+h2:hover + .elem{
+  background-image: url('https://images.unsplash.com/photo-1601643157091-ce5c665179ab?q=80&w=1744&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+}
+
+h5{ 
+  
+    font-family: "EB Garamond", serif;
+    
+  
+}

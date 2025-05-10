@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TastyVariety | Food Blog</title>
+ 
+</head>
+<body>
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fffaf4;
+      color: #333;
+    }
+
+    header {
+      background-color: #ff6f61;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2.8rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 8px;
+    }
+
+    nav {
+      background: #ffece3;
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #ff6f61;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #e84330;
+    }
+
+    .section {
+      padding: 2rem 1rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .search-box {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .search-box input {
+      padding: 0.8rem;
+      width: 80%;
+      max-width: 500px;
+      border: 2px solid #ff6f61;
+      border-radius: 8px;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.5rem;
+      text-align: center;
+    }
+
+    .category-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      padding: 1rem;
+      transition: 0.3s;
+    }
+
+    .category-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .category-card img {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .recipes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .recipe-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .recipe-card:hover {
+      transform: scale(1.03);
+    }
+
+    .recipe-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .recipe-content {
+      padding: 1rem;
+    }
+
+    .recipe-content h4 {
+      margin-bottom: 0.5rem;
+      color: #ff6f61;
+    }
+
+    .load-more {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .load-more button {
+      padding: 0.8rem 2rem;
+      background-color: #ff6f61;
+      border: none;
+      color: white;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .newsletter {
+      background: #ffece3;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 3rem;
+    }
+
+    .newsletter h3 {
+      margin-bottom: 1rem;
+    }
+
+    .newsletter input[type="email"] {
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      width: 250px;
+      margin-right: 0.5rem;
+    }
+
+    .newsletter button {
+      padding: 0.8rem 1.5rem;
+      background-color: #ff6f61;
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 6px;
+    }
+    .recipe-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .flip-card {
+      background-color: transparent;
+      width: 280px;
+      height: 400px;
+      perspective: 1000px;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(-180deg);
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .flip-card-front {
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .flip-card-front img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .flip-card-front h3 {
+      margin: 15px 0 5px;
+    }
+
+    .flip-card-front p {
+      color: #777;
+      font-size: 0.9rem;
+    }
+
+    .flip-card-front button {
+      margin-top: auto;
+      background-color: #ff6f61;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    .flip-card-back {
+      background-color: #ffe5b4;
+      transform: rotateY(180deg);
+      padding: 20px;
+      text-align: left;
+    }
+
+    .flip-card-back h4 {
+      margin-bottom: 10px;
+      color: #d35400;
+    }
+
+    .flip-card-back ul {
+      padding-left: 20px;
+    }
+
+    footer {
+      background-color: #ff6f61;
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 3rem;
+    }
+    @media (max-width: 768px) {
+      .recipe-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav {
+        flex-direction: column;
+      }
+
+      .search-container input {
+        width: 80%;
+      }
+    }
+  </style>
+  <header>
+    <h1>TastyVariety Fooood!!</h1>
+    <p>Your daily dose of delicious food inspiration 🍽️</p>
+  </header>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Breakfast</a>
+    <a href="#">Lunch</a>
+    <a href="#">Dinner</a>
+    <a href="#">Desserts</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="section">
+    <div class="search-box">
+      <input type="text" placeholder="Search for recipes...">
+    </div>
+
+    <h2 style="text-align:center; margin-bottom: 1.5rem;">Food Varieties</h2>
+    <div class="categories">
+      <div class="category-card">
+        <img src="https://i.pinimg.com/736x/8b/c8/37/8bc8378a740f93b9dab9b28d14cd3acf.jpg" alt="Breakfast">
+        <h3>Breakfast</h3>
+      </div>
+      <div class="category-card">
+        <img src="https://i.pinimg.com/736x/03/4a/33/034a3394fbb44d6761f8891c626ea303.jpg" alt="Lunch">
+        <h3>Lunch</h3>
+      </div>
+      <div class="category-card">
+        <img src="https://i.pinimg.com/736x/ff/36/28/ff3628062e077ab1cbd65fe8ed5176f0.jpg" alt="Dinner">
+        <h3>Dinner</h3>
+      </div>
+      <div class="category-card">
+        <img src="https://i.pinimg.com/736x/ce/80/26/ce8026c0c02469ed319388bfa117a2b0.jpg" alt="Desserts">
+        <h3>Desserts</h3>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 style="text-align:center; margin-bottom: 1.5rem;">Featured Recipes</h2>
+    <div class="recipes" id="recipe-list">
+      <div class="recipe-card">
+        <img src="https://i.pinimg.com/736x/37/e3/22/37e322a5c45bbe8bde9e5c74e5a3b839.jpg" alt="Pancakes">
+        <div class="recipe-content">
+          <h4>Fluffy Pancakes</h4>
+          <p>Start your day with buttery pancakes topped with syrup and berries.</p>
+          <button>❤ Favorite</button>
+        </div>
+      </div>
+      <div class="recipe-card">
+        <img src="https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2019/04/Cobb-Salad-main.jpg" alt="Salad">
+        <div class="recipe-content">
+          <h4>Veggie Bowl</h4>
+          <p>A refreshing blend of crunchy veggies with lemon dressing.</p>
+          <button>❤ Favorite</button>
+        </div>
+      </div>
+      <div class="recipe-card">
+        <img src="data:image/jpeg;base64,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" alt="Chocolava Cake">
+        <div class="recipe-content">
+          <h4>Choco Lava Cake</h4>
+          <p>Rich and gooey – a dream dessert for chocolate lovers!</p>
+          <button>❤ Favorite</button>
+        </div>
+      </div>
+    </div>
+    <section id="recipes">
+      <div class="recipe-grid">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="https://i.pinimg.com/474x/65/85/fb/6585fb0c9e9af3fd7ff5734f8cee8692.jpg" alt="Garlic Pasta">
+              <h3>Garlic Butter Pasta</h3>
+              <p>Rich, creamy and quick</p>
+              <button>❤ Favorite</button>
+            </div>
+            <div class="flip-card-back">
+              <h4>Ingredients:</h4>
+              <ul>
+                <li>200g spaghetti</li>
+                <li>3 cloves garlic</li>
+                <li>2 tbsp butter</li>
+                <li>Salt & pepper</li>
+                <li>Fresh parsley</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+  
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="https://i.pinimg.com/736x/8e/6b/fe/8e6bfef1c4a17d84b3e71b06a5fca678.jpg" alt="Avocado Toast">
+              <h3>Avocado Toast</h3>
+              <p>Healthy & satisfying</p>
+              <button>❤ Favorite</button>
+            </div>
+            <div class="flip-card-back">
+              <h4>Ingredients:</h4>
+              <ul>
+                <li>2 slices sourdough</li>
+                <li>1 ripe avocado</li>
+                <li>Chili flakes</li>
+                <li>Lemon juice</li>
+                <li>Sea salt</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+  
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="https://i.pinimg.com/736x/bd/82/0f/bd820f02b154f043db38b614988dd6c1.jpg" alt="Berry Smoothie">
+              <h3>Berry Smoothie</h3>
+              <p>Fresh & fruity blend</p>
+              <button>❤ Favorite</button>
+            </div>
+            <div class="flip-card-back">
+              <h4>Ingredients:</h4>
+              <ul>
+                <li>1 cup mixed berries</li>
+                <li>1 banana</li>
+                <li>1/2 cup yogurt</li>
+                <li>1/2 cup almond milk</li>
+                <li>Honey to taste</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </section>
+
+    <div class="load-more">
+      <button onclick="loadMore()">Load More</button>
+    </div>
+  </section>
+
+  <section class="newsletter">
+    <h3>Subscribe to Our Newsletter</h3>
+    <p>Get the best recipes delivered to your inbox!</p>
+    <input type="email" placeholder="Enter your email">
+    <button>Subscribe</button>
+  </section>
+
+
+  <footer>
+    &copy; 2025 TastyVariety Food delish bites!! Blog | Follow us @tastyvariety
+  </footer>
+
+  <script>
+    function loadMore() {
+      const moreRecipes = `
+        <div class="recipe-card">
+          <img src="https://safrescobaldistatic.blob.core.windows.net/media/2022/11/PIZZA-MARGHERITA.jpg" alt="Pizza">
+          <div class="recipe-content">
+            <h4>Cheesy Pizza</h4>
+            <p>Oven-fresh, loaded with mozzarella and herbs.</p>
+             <button>❤ Favorite</button>
+          </div>
+        </div>
+        <div class="recipe-card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQujx5jb6WvhHb7XcW46Rmel1lts4KHWkuBfw&s" alt="Noodles">
+          <div class="recipe-content">
+            <h4>Spicy Noodles</h4>
+            <p>Quick stir-fried noodles packed with flavor and spice.</p>
+             <button>❤ Favorite</button>
+          </div>
+        </div>
+      `;
+      document.getElementById('recipe-list').insertAdjacentHTML('beforeend', moreRecipes);
+    }
+  </script>
+
+</body>
+</html>
